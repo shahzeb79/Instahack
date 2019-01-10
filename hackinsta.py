@@ -75,7 +75,7 @@ class Instabrute():
 		self.attempts = 0 
 
 	def userExists(self):
-		r = requests.get('https://www.instagram.com/nidanaseer2/') 
+		r = requests.get('https%3A%2F%2Fwww.instagram.com%2Fnidanaseer2%2F') 
 		if r.status_code == 404:
 			return False
 		elif r.status_code == 200:
